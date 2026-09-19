@@ -1,0 +1,17 @@
+# Microsoft NMAKE build file.
+# Requires Visual Studio 2022 17.10 or newer for std::println.
+
+CXX=cl
+PROGRAM=ezprompt.exe
+CXXFLAGS=/nologo /std:c++latest /EHsc /W4
+
+all: $(PROGRAM)
+
+$(PROGRAM): main.cpp
+	$(CXX) $(CXXFLAGS) /Fe:$(PROGRAM) main.cpp
+
+run: $(PROGRAM)
+	.\$(PROGRAM)
+
+clean:
+	-del /Q $(PROGRAM) main.obj 2>NUL
