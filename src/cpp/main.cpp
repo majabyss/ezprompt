@@ -40,8 +40,8 @@ int main() {
     std::getline(std::cin, s.reasoning);
 
     if (ans == "y") {
-        std::ofstream out("prompt.md");
-        std::println(out, "<role>\n{}.\n</role>\n<objective>\n{}\n</objective>\n<context>\n{}\n</context>\n<task>\n{}\n</task>\n<constraints>\n{}\n</constraints>\n<output_format>\n{}\n</output_format>\n<examples>\n{}\n</examples>\n<reasoning>\n{}\n</reasoning>", s.role, s.obj, s.context, s.task, s.constraints, s.out_fmt, s.examples, s.reasoning);    
+        std::ofstream out("prompt.xml");
+        std::println(out, "<role>\n{}\n</role>\n<context>\n{}\n</context>\n<examples>\n{}\n</examples>\n<constraints>\n{}\n</constraints>\n<objective>\n{}\n</objective>\n<task>\n{}\n</task>\n<output_format>\n{}\n</output_format>\n<reasoning>\n{}\n</reasoning>", s.role, s.context, s.examples, s.constraints, s.obj, s.task, s.out_fmt, s.reasoning);    
     } else if (ans == "n") {
         std::ofstream out("prompt.md");
         std::println(out, "## ROLE\n{}\n\n## OBJECTIVE\n{}\n\n## CONTEXT\n{}\n\n## TASK\n{}\n\n## CONSTRAINTS\n{}\n\n## OUTPUT FORMAT\n{}\n\n## EXAMPLES\n{}\n\n## REASONING\n{}", s.role, s.obj, s.context, s.task, s.constraints, s.out_fmt, s.examples, s.reasoning);
