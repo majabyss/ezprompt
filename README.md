@@ -64,3 +64,7 @@ Clean the Visual Studio build with:
 nmake /f Makefile.msvc clean
 ```
 </content>
+
+
+## Disclaimer
+***This README and the make files were created using an LLM, the rest of this project is human made.***
