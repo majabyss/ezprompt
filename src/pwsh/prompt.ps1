@@ -1,19 +1,24 @@
-Function main {
-    $anthropic = Read-Host "Are you using Claude as your agent, y/n?"
+function Read-Line([string]$Prompt) {
+    Write-Host $Prompt -NoNewline
+    return [Console]::ReadLine()
+}
+
+function main {
+    $anthropic = Read-Line "Are you using Claude as your agent, y/n?"
 
     if ($anthropic -ne 'y' -and $anthropic -ne 'n') {
         Write-Host "Error: Unknown input!"
         exit 1
     }
 
-    $role = Read-Host "What is this agent's role? (e.g. An experienced software engineer)"
-    $objective = Read-Host "What is this agent's objective? (e.g. Build an app that tracks my daily routine) <- Keep this to one sentence."
-    $context = Read-Host "What context should the agent know? (e.g. I am a very busy person and can't keep track of my day to day life)."
-    $task = Read-Host "What is the task for this agent? (e.g. Step 1... Step 2... etc.) <- This is for more detailed instructions than the end objective."
-    $constraints = Read-Host "What constraints should this agent follow? (e.g. Never use old C++ versions)."
-    $out_fmt = Read-Host "What should the output format be? (e.g. A file, some text, etc)."
-    $examples = Read-Host "(Optional) Are there any specific examples the agent should know? (e.g. X fails to load on Y system)."
-    $reasoning = Read-Host "(Optional) How should the agent think/reason? (e.g. Think step by step)."
+    $role = Read-Line "What is this agent's role? (e.g. An experienced software engineer)"
+    $objective = Read-Line "What is this agent's objective? (e.g. Build an app that tracks my daily routine) <- Keep this to one sentence."
+    $context = Read-Line "What context should the agent know? (e.g. I am a very busy person and can't keep track of my day to day life)."
+    $task = Read-Line "What is the task for this agent? (e.g. Step 1... Step 2... etc.) <- This is for more detailed instructions than the end objective."
+    $constraints = Read-Line "What constraints should this agent follow? (e.g. Never use old C++ versions)."
+    $out_fmt = Read-Line "What should the output format be? (e.g. A file, some text, etc)."
+    $examples = Read-Line "(Optional) Are there any specific examples the agent should know? (e.g. X fails to load on Y system)."
+    $reasoning = Read-Line "(Optional) How should the agent think/reason? (e.g. Think step by step)."
 
     if ($anthropic -eq 'y') {
         $content = @"
